@@ -21,25 +21,25 @@ document.getElementById('chlv').addEventListener('click',()=>{
     document.getElementById('level').style.display='block';
 })
 document.getElementById('sand').addEventListener('click',()=>{
-    map='/CSS/desertbg.jpg';
+    map='../CSS/desertbg.jpg';
     document.getElementById('box').style.backgroundImage="url("+map+")"
     document.getElementById('mainbox').style.display='none';
     document.getElementById('start').style.display='block';
 })
 document.getElementById('ice').addEventListener('click',()=>{
-    map='/CSS/redishbg.jpg';
+    map='../CSS/redishbg.jpg';
     document.getElementById('box').style.backgroundImage="url("+map+")"
     document.getElementById('mainbox').style.display='none';
     document.getElementById('start').style.display='block';
 })
 document.getElementById('grass').addEventListener('click',()=>{
-    map='/CSS/grassbg.jpg';
+    map='../CSS/grassbg.jpg';
     document.getElementById('box').style.backgroundImage="url("+map+")"
     document.getElementById('start').style.display='block';
     document.getElementById('mainbox').style.display='none';
 })
 document.getElementById('bridge').addEventListener('click',()=>{
-    map='/CSS/blackbg.jpg';
+    map='../CSS/blackbg.jpg';
     document.getElementById('box').style.backgroundImage="url("+map+")"
     document.getElementById('start').style.display='block';
     document.getElementById('mainbox').style.display='none';

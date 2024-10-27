@@ -16,18 +16,19 @@ $("#log").click(function () {
   $(".alert1").css("animation", "none");
 
   if (credentials.has($("#username").val())) {
+    console.log("This is ", credentials.get($("username").val()))
     if (credentials.get($("username").val())==$("username").val()) {
       $(".alert1").css("border-right", "solid 9px green");
       $(".disclaimer").text("Login Successful");
       privledge = true;
       setTimeout(function () {
-          window.location.replace("game.html");
+          window.location.replace("MYCARGAME/HTML/game.html");
       }, 2000);
     } else {
       $(".alert").text("Password Incorrect");
     }
   } else {
-    $(".alert").text("Email Id Incorrect");
+    $(".alert").text("Username is Incorrect");
   }
   setTimeout(function () {
     $(".alert1").css("animation", "appear 5s");
@@ -40,7 +41,7 @@ $(".submitbtn").click(function () {
   $(".alert").text(" ");
   $(".alert1").css("animation", "none");
 
-  var fn = [$("#fn").val(), $("#ln").val(), $("#mn").val(), $("#pass").val()];
+  var fn = [$("#fn").val(), $("#ln").val(), $("#mn").val(), $("#pass").val(), $("#ei").val()];
   var isValid = true;
   $(".form-field").each(function () {
     if ($(this).val() === "") {
@@ -75,7 +76,7 @@ $(".submitbtn").click(function () {
   }
   if (!SpecialChar(fn[3])) {
     $(".alert").append(
-      "<br>The password should contain atleast one special character"
+      "<br>The password should contain at least one special character"
     );
     flag = 1;
   }
@@ -84,10 +85,15 @@ $(".submitbtn").click(function () {
     flag = 1;
   }
 
+  if(!emailIsCorrect(fn[4])){
+    $(".alert").append("<br>Please enter a valid email id");
+    flag = 1;
+  }
+
   if (flag == 0) {
     $(".alert1").css("border-right", "solid 9px green");
     $(".disclaimer").text("Account Created");
-    credentials.set($("#ei").val(), $("#pass").val());
+    credentials.set($("#ln").val(), $("#pass").val());
     setTimeout(function () {
         $(".login").css("display","block");
         $(".signup").css("display","none");
@@ -111,5 +117,7 @@ function numck(str) {
 function SpecialChar(str) {
   return /[!@#$%^&*()_+\-= \[\]{};':"\\|,.<>\/?]+/.test(str);
 }
-
+function emailIsCorrect(email){
+  return /(.+)@(.+){2,}\.(.+){2,}/.test(email)
+}
 
